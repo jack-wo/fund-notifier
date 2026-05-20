@@ -20,7 +20,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 运行基金检查脚本
+      - name: 安装依赖并运行脚本
         env:
           SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
-        run: python fund_check.py
+        run: |
+          pip install requests
+          python fund_check.py
